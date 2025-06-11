@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My TODO App</title>
+</head>
+<body>
+  <h1>TODO List</h1>
+
+  <h2>Add a new task</h2>
+  <form action="/add" method="POST">
+    <input type="text" name="task" required placeholder="Enter task here" />
+    <button type="submit">Add</button>
+  </form>
+
+  <% if (todos.length === 0) { %>
+    <p>No tasks yet.</p>
+  <% } else { %>
+    <ul>
+      <% todos.forEach(todo => { %>
+        <li>
+          <%= todo.task %> - <%= todo.done ? '✅ Done' : '❌ Not done' %>
+          <form action="/toggle/<%= todo._id %>" method="POST" style="display:inline;">
+            <button type="submit">Toggle</button>
+          </form>
+        </li>
+      <% }) %>
+    </ul>
+  <% } %>
+</body>
+</html>
