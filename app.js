@@ -27,10 +27,10 @@ app.get('/', async (req, res) => {
   }
 });
 
-app.post('*', (req, res, next) => {
-  console.log("👉 Received a POST request to:", req.originalUrl);
-  next();
-});
+// app.post('*', (req, res, next) => {
+//   console.log("👉 Received a POST request to:", req.originalUrl);
+//   next();
+// });
 
 app.post('/add', async (req, res) => {
   console.log("🔥 POST /add hit!");
